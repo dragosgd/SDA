@@ -1,0 +1,114 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{enumerate}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\title{Proiect SDA}
+\author{Dragos-Gabriel Danciulescu}
+\date{May 2022}
+
+
+\begin{document}
+
+\maketitle
+
+\section*{Example Exercise}
+
+Use the baby-step giant-step method to find x such that   $$ 5^{x} \equiv 107 \bmod{179} $$. Pick m = $\lfloor\sqrt{89}\rfloor$.Copy, extend and fill the
+appropriate tables.\\
+\begin{enumerate}[a.]
+    \item
+We will create the Baby steps table in which $g=5$ for $i$ up to $9$:\\
+\begin{tabular}{ |c|c|c|c|c|c|c|c|c|c|c| }
+ \hline
+ i & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+ \hline
+ $5^i \bmod 179$ & 1 & 5 & 25 & 125 & 88 & 82 & 52 & 81 & 47 &  56\\
+ \hline
+
+\end{tabular}
+\\
+Next, we note that:\\
+$g^{-\sqrt{89}}=5^{-9}=56^{-1}=16 \bmod 179$\\
+So, $h \cdot g^{-mj} = 107 \cdot 16^j$\\
+Now,we will create the Giant steps table. Note that in the algorithm, these values are not stored in memory like the ones in the first table.\\
+\begin{tabular}{ |c|c|c|c| }
+ \hline
+ j & 0 & 1 & 2\\
+ \hline
+ $107 \cdot 16^j \bmod 179$ & 107 & 101 & 5\\
+ \hline
+
+\end{tabular}
+We can now observe that we've found a match, for $i=1$ and $j=2$.\\
+So,following the theory:\\
+$g^{i+m \cdot j}=h$\\
+$5^{1+9 \cdot 2}=107$\\
+$5^{19} \bmod 179 = 107$\\
+We've also checked the value with Wolfram Alpha, it is correct, so:\\
+$x=19$\\
+
+\end{enumerate}
+
+
+\section*{Notebook Examples and Theory}
+\begin{figure}
+  \includegraphics[width=\textwidth]{GCD.png}
+  \caption{Extended Euclidean algorithm notebook example}
+  \label{fig:D_P}
+ \end{figure}
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{BSGS.png}
+  \caption{Baby-Step Giant-Step notebook example}
+  \label{fig:D_P}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{theory_gcd.png}
+  \caption{Greatest Common divisor}
+  \label{fig:D_P}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{euclidean.png}
+  \caption{Euclidean algorithm}
+  \label{fig:D_P}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{EEA.png}
+  \caption{Extended euclidean algorithm}
+  \label{fig:D_P}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{Invertibility.png}
+  \caption{Computing inverse using Euclid's algorithm}
+  \label{fig:D_P}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{DiscreteLog.png}
+  \caption{The discrete log problem in cryptography}
+  \label{fig:D_P}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{TheoryBSGS.png}
+  \caption{Explanation of Baby-Step Giant-Step algorithm}
+  \label{fig:D_P}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{Discussion.png}
+  \caption{A discussion about BSGS}
+  \label{fig:D_P}
+\end{figure}
+
+
+
+
+
+\end{document}
